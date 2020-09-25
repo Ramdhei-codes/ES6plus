@@ -111,3 +111,42 @@ const helloPromise = () => {
 helloPromise()
     .then(response => console.log(response))
     .catch(error => console.error(error))
+
+//Clases: Programación orientada a objetos con Javascript
+
+class calculator{
+    constructor(){
+        this.valueA = 0; //creamos atributos del objeto
+        this.valueB = 0;
+    }
+//funcion para operar o utlizar los atributos
+    sum(a, b){
+        this.valueA = a;
+        this.valueB = b;
+        return this.valueA + this.valueB;
+    }
+}
+
+const calc = new calculator(); //cración del nuevo objeto
+console.log(calc.sum(3,2))
+
+//Módulos (Archivo module.js en esta carpeta)
+
+import raizCuadrada from './module' //importamos desde module.js
+
+console.log(raizCuadrada(4))
+
+//Generadores, funciones especiales que retornan una serie de valores según el algoritmo definido
+
+function* letters(word = 'Hola'){
+    for(letter of word){
+        yield letter
+    }
+}
+
+const letras = letters()
+console.log(letras.next())
+console.log(letras.next())
+console.log(letras.next())
+console.log(letras.next())
+console.log(letras.next()) //éste nos muestra un value: undefined(no hay valor) pero un done: true(signofica que ya terminó de ejecutarse)
